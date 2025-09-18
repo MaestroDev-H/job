@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InclusioJobs - Inkluderande arbetsplats där alla hör hemma</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-CmcrT1oZ.css">
+</head>
+<body>
+    <div class="accessibility-toolbar">
+        <button class="accessibility-btn" onclick="toggleHighContrast()" title="Hög kontrast" aria-label="Växla hög kontrast">
+            <i class="fas fa-adjust"></i>
+        </button>
+        <button class="accessibility-btn" onclick="increaseFontSize()" title="Öka textstorlek" aria-label="Öka textstorlek">
+            <i class="fas fa-plus"></i>
+        </button>
+        <button class="accessibility-btn" onclick="decreaseFontSize()" title="Minska textstorlek" aria-label="Minska textstorlek">
+            <i class="fas fa-minus"></i>
+        </button>
+        <button class="accessibility-btn" onclick="toggleKeyboardNav()" title="Tangentbordsnavigering" aria-label="Visa tangentbordsnavigering">
+            <i class="fas fa-keyboard"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <!-- Landing Page -->
+        <div class="page active" id="landing">
+            <div class="header">
+                <div class="auth-buttons">
+                    <button class="auth-btn" onclick="showPage('login')">Logga in</button>
+                    <button class="auth-btn" onclick="showPage('register')">Registrera</button>
+                </div>
+                <h1>InclusioJobs</h1>
+                <p>Inkluderande arbetsplats där alla hör hemma</p>
+                <div class="domain">inclusiojobs.se</div>
+            </div>
+            
+            <div class="hero">
+                <h2>Hitta din plats på arbetsmarknaden</h2>
+                <p>Vi kopplar samman arbetssökande med funktionsnedsättning och arbetsgivare som erbjuder tillgängliga och anpassade arbetsmiljöer.</p>
+                
+                <div class="search-section">
+                    <div class="search-container">
+                        <div class="search-bar">
+                            <input type="text" class="search-input" placeholder="Sök jobb, företag eller plats..." aria-label="Sök jobb">
+                            <button class="search-btn" aria-label="Sök jobb"><i class="fas fa-search"></i> Sök</button>
+                        </div>
+                        <div class="filters">
+                            <select class="filter-select" aria-label="Välj plats">
+                                <option>Alla platser</option>
+                                <option>Stockholm</option>
+                                <option>Göteborg</option>
+                                <option>Malmö</option>
+                                <option>Uppsala</option>
+                                <option>Linköping</option>
+                                <option>Distansarbete</option>
+                            </select>
+                            <select class="filter-select" aria-label="Välj anställningstyp">
+                                <option>Alla jobtyper</option>
+                                <option>Heltid</option>
+                                <option>Deltid</option>
+                                <option>Praktik</option>
+                                <option>Konsult</option>
+                                <option>Timanställning</option>
+                            </select>
+                            <select class="filter-select" aria-label="Välj anpassningar">
+                                <option>Alla anpassningar</option>
+                                <option>Flexibla arbetstider</option>
+                                <option>Distansarbete</option>
+                                <option>Rullstolsanpassat</option>
+                                <option>Hjälpmedel</option>
+                                <option>Tyst miljö</option>
+                                <option>Arbetscoach</option>
+                            </select>
+                            <select class="filter-select" aria-label="Välj bransch">
+                                <option>Alla branscher</option>
+                                <option>IT/Teknik</option>
+                                <option>Kundservice</option>
+                                <option>Lager/Logistik</option>
+                                <option>Kreativ/Design</option>
+                                <option>Hälso- och sjukvård</option>
+                                <option>Utbildning</option>
+                                <option>Handel</option>
+                            </select>
+                            <select class="filter-select" aria-label="Välj partner">
+                                <option value="Alla partners">Alla partners</option>
+                                <option value="Arbetsförmedlingen">Arbetsförmedlingen</option>
+                                <option value="Samhall">Samhall</option>
+                                <option value="Privat">Privat arbetsgivare</option>
+                            </select>
+                        </div>
+                        <div class="advanced-search">
+                            <button class="toggle-advanced" onclick="toggleAdvancedSearch()">
+                                <i class="fas fa-cog"></i> Avancerad sökning
+                            </button>
+                            <div class="advanced-filters" id="advancedFilters">
+                                <div class="salary-range">
+                                    <label>Löneintervall:</label>
+                                    <input type="range" min="15000" max="80000" value="30000" class="salary-slider" id="salaryRange">
+                                    <span class="salary-display">15 000 - 80 000 kr</span>
+                                </div>
+                                <div class="experience-level">
+                                    <label>Erfarenhetsnivå:</label>
+                                    <select>
+                                        <option>Alla nivåer</option>
+                                        <option>Nybörjare</option>
+                                        <option>Junior (1-3 år)</option>
+                                        <option>Medior (3-7 år)</option>
+                                        <option>Senior (7+ år)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-container">
+                    <a href="#" class="main-button jobseeker-btn" onclick="showPage('dashboard')">
+                        <div class="button-icon">👤</div>
+                        <div class="button-title">Jag söker jobb</div>
+                        <div class="button-subtitle">Få matchning baserat på dina behov och färdigheter</div>
+                    </a>
+                    
+                    <a href="#" class="main-button employer-btn" onclick="showPage('employer')">
+                        <div class="button-icon">🏢</div>
+                        <div class="button-title">Jag är arbetsgivare</div>
+                        <div class="button-subtitle">Hitta rätt kandidat med rätta anpassningar</div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h3>Aktuella jobberbjudanden</h3>
+                
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Kundtjänstmedarbetare</div>
+                            <div class="job-company">TechSupport AB, Stockholm</div>
+                            <span class="partner-badge arbetsformedlingen">Arbetsförmedlingen</span>
+                        </div>
+                        <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
+                    </div>
+                    <div class="job-meta">
+                        <span class="job-type">Heltid</span>
+                        <span class="salary">25 000 - 30 000 kr</span>
+                        <span class="category">Kundservice</span>
+                        <span class="match-score">95% Match</span>
+                        <span class="support-level">Lönebidrag tillgängligt</span>
+                    </div>
+                    <div class="job-description">
+                        Vi söker en engagerad kundtjänstmedarbetare som vill hjälpa våra kunder med teknisk support via telefon och chat. Perfect för dig som vill arbeta med människor och teknologi.
+                    </div>
+                    <div class="accessibility-features">
+                        <h4><i class="fas fa-star"></i> Våra anpassningar:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag"><i class="fas fa-clock"></i> Flexibla arbetstider</span>
+                            <span class="feature-tag"><i class="fas fa-home"></i> Hemarbete möjligt</span>
+                            <span class="feature-tag"><i class="fas fa-headphones"></i> Hjälpmedel för hörsel</span>
+                            <span class="feature-tag"><i class="fas fa-user-graduate"></i> Extra introduktionsstöd</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Personlig coach</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Anpassad arbetsplats</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="apply-btn" onclick="applyToJob('tech-support-1')">
+                            <i class="fas fa-paper-plane"></i> Ansök nu
+                        </button>
+                        <button class="message-btn" onclick="openMessaging('TechSupport AB')">
+                            <i class="fas fa-comment"></i> Ställ fråga
+                        </button>
+                        <button class="view-btn" onclick="viewJobDetails('tech-support-1')">
+                            <i class="fas fa-eye"></i> Visa mer
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Additional job cards with more variety -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Webbutvecklare</div>
+                            <div class="job-company">Inclusive Tech, Stockholm</div>
+                            <span class="partner-badge samhall">Samhall</span>
+                        </div>
+                        <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
+                    </div>
+                    <div class="job-meta">
+                        <span class="job-type">Heltid</span>
+                        <span class="salary">35 000 - 45 000 kr</span>
+                        <span class="category">IT/Teknik</span>
+                        <span class="match-score">88% Match</span>
+                        <span class="support-level">Samhall-anställning</span>
+                    </div>
+                    <div class="job-description">
+                        Utveckla tillgängliga webbapplikationer med fokus på användarupplevelse. Vi värdesätter mångfald och har erfarenhet av neurodivergenta utvecklare.
+                    </div>
+                    <div class="accessibility-features">
+                        <h4><i class="fas fa-star"></i> Våra anpassningar:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag"><i class="fas fa-brain"></i> Neurodivergent-vänlig miljö</span>
+                            <span class="feature-tag"><i class="fas fa-volume-mute"></i> Tyst arbetszon</span>
+                            <span class="feature-tag"><i class="fas fa-laptop"></i> Specialiserad utrustning</span>
+                            <span class="feature-tag"><i class="fas fa-calendar-alt"></i> Flexibel schemaläggning</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Mentorskap</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Strukturerat arbetssätt</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="apply-btn" onclick="applyToJob('web-dev-1')">
+                            <i class="fas fa-paper-plane"></i> Ansök nu
+                        </button>
+                        <button class="message-btn" onclick="openMessaging('Inclusive Tech')">
+                            <i class="fas fa-comment"></i> Ställ fråga
+                        </button>
+                        <button class="view-btn" onclick="viewJobDetails('web-dev-1')">
+                            <i class="fas fa-eye"></i> Visa mer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Vårdassistent</div>
+                            <div class="job-company">Caring Hands, Göteborg</div>
+                            <span class="partner-badge arbetsformedlingen">Arbetsförmedlingen</span>
+                        </div>
+                        <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
+                    </div>
+                    <div class="job-meta">
+                        <span class="job-type">Deltid</span>
+                        <span class="salary">22 000 - 28 000 kr</span>
+                        <span class="category">Hälso- och sjukvård</span>
+                        <span class="match-score">92% Match</span>
+                        <span class="support-level">Aktivitetsstöd</span>
+                    </div>
+                    <div class="job-description">
+                        Hjälp äldre personer i deras dagliga aktiviteter. Vi erbjuder en stödjande miljö där empati och omtanke värdesätts högt.
+                    </div>
+                    <div class="accessibility-features">
+                        <h4><i class="fas fa-star"></i> Våra anpassningar:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag"><i class="fas fa-wheelchair"></i> Rullstolsanpassat</span>
+                            <span class="feature-tag"><i class="fas fa-hands-helping"></i> Personlig assistent</span>
+                            <span class="feature-tag"><i class="fas fa-clock"></i> Anpassade arbetstider</span>
+                            <span class="feature-tag"><i class="fas fa-heart"></i> Empatisk arbetsmiljö</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Kontinuerlig utbildning</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Stöd från arbetsterapeut</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="apply-btn" onclick="applyToJob('care-assistant-1')">
+                            <i class="fas fa-paper-plane"></i> Ansök nu
+                        </button>
+                        <button class="message-btn" onclick="openMessaging('Caring Hands')">
+                            <i class="fas fa-comment"></i> Ställ fråga
+                        </button>
+                        <button class="view-btn" onclick="viewJobDetails('care-assistant-1')">
+                            <i class="fas fa-eye"></i> Visa mer
+                        </button>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Dataanalytiker</div>
+                            <div class="job-company">Data Insights AB, Distans</div>
+                            <span class="partner-badge samhall">Samhall</span>
+                        </div>
+                        <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
+                    </div>
+                    <div class="job-meta">
+                        <span>Heltid</span>
+                        <span>40 000 - 50 000 kr</span>
+                        <span>IT/Analys</span>
+                        <span class="match-score">85% Match</span>
+                        <span class="support-level">Autism-anpassat</span>
+                    </div>
+                    <div class="job-description">
+                        Analysera data och skapa insikter för våra kunder. Perfekt för dig som gillar mönster, struktur och arbetar bäst i egen takt.
+                    </div>
+                    <div class="accessibility-features">
+                        <h4><i class="fas fa-star"></i> Våra anpassningar:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag"><i class="fas fa-home"></i> 100% distansarbete</span>
+                            <span class="feature-tag"><i class="fas fa-brain"></i> Autism-vänlig struktur</span>
+                            <span class="feature-tag"><i class="fas fa-chart-line"></i> Visuella verktyg</span>
+                            <span class="feature-tag"><i class="fas fa-user-clock"></i> Egen arbetstakt</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Tydliga instruktioner</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Regelbunden feedback</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="apply-btn" onclick="applyToJob('data-analyst-1')">
+                            <i class="fas fa-paper-plane"></i> Ansök nu
+                        </button>
+                        <button class="message-btn" onclick="openMessaging('Data Insights AB')">
+                            <i class="fas fa-comment"></i> Ställ fråga
+                        </button>
+                        <button class="view-btn" onclick="viewJobDetails('data-analyst-1')">
+                            <i class="fas fa-eye"></i> Visa mer
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">IT-supporter</div>
+                            <div class="job-company">Digital Solutions, Göteborg</div>
+                        </div>
+                        <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
+                    </div>
+                    <div class="job-meta">
+                        <span>Deltid</span>
+                        <span>20 000 - 25 000 kr</span>
+                        <span>IT/Teknik</span>
+                    </div>
+                    <div class="job-description">
+                        Hjälp våra användare med tekniska frågor och systemstöd. Perfekt för dig som gillar problemlösning och vill utvecklas inom IT.
+                    </div>
+                    <div class="accessibility-features">
+                        <h4>🌟 Våra anpassningar:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Rullstolsanpassad lokal</span>
+                            <span class="feature-tag">Skärmläsarprogram</span>
+                            <span class="feature-tag">Ergonomisk arbetsplats</span>
+                            <span class="feature-tag">Arbetscoach första månaden</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="apply-btn" onclick="showPage('jobseeker')">Ansök nu</button>
+                        <button class="message-btn" onclick="showPage('messaging')">Ställ fråga</button>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Lagermedarbetare</div>
+                            <div class="job-company">Green Logistics, Malmö</div>
+                        </div>
+                        <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
+                    </div>
+                    <div class="job-meta">
+                        <span>Heltid</span>
+                        <span>22 000 - 28 000 kr</span>
+                        <span>Lager/Logistik</span>
+                    </div>
+                    <div class="job-description">
+                        Arbeta i vårt moderna lager med plock, pack och kvalitetskontroll. Vi erbjuder ergonomiska arbetsstationer och stödjande miljö.
+                    </div>
+                    <div class="accessibility-features">
+                        <h4>🌟 Våra anpassningar:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Ergonomiska hjälpmedel</span>
+                            <span class="feature-tag">Justerbar arbetshöjd</span>
+                            <span class="feature-tag">Visuella arbetsinstruktioner</span>
+                            <span class="feature-tag">Flexibel arbetstakt</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="apply-btn" onclick="showPage('jobseeker')">Ansök nu</button>
+                        <button class="message-btn" onclick="showPage('messaging')">Ställ fråga</button>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Grafisk designer</div>
+                            <div class="job-company">Creative Studio, Stockholm</div>
+                        </div>
+                        <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
+                    </div>
+                    <div class="job-meta">
+                        <span>Deltid</span>
+                        <span>25 000 - 35 000 kr</span>
+                        <span>Kreativ/Design</span>
+                    </div>
+                    <div class="job-description">
+                        Skapa visuellt material för våra kunder. Flexibel miljö där kreativitet och individuella behov prioriteras.
+                    </div>
+                    <div class="accessibility-features">
+                        <h4>🌟 Våra anpassningar:</h4>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Specialiserad programvara</span>
+                            <span class="feature-tag">Färgblindanpassning</span>
+                            <span class="feature-tag">Tyst arbetsmiljö</span>
+                            <span class="feature-tag">Hemarbete 3 dagar/vecka</span>
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        <button class="apply-btn" onclick="showPage('jobseeker')">Ansök nu</button>
+                        <button class="message-btn" onclick="showPage('messaging')">Ställ fråga</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="page" id="dashboard">
+            <div class="header">
+                <h1>Min Dashboard</h1>
+                <p>Välkommen tillbaka, Anna!</p>
+            </div>
+            
+            <div class="dashboard">
+                <div class="dashboard-nav">
+                    <button class="nav-item active" onclick="showDashboardContent('recommendations', event)" aria-controls="recommendations">Rekommendationer</button>
+                    <button class="nav-item" onclick="showDashboardContent('saved', event)" aria-controls="saved">Sparade jobb</button>
+                    <button class="nav-item" onclick="showDashboardContent('applications', event)" aria-controls="applications">Mina ansökningar</button>
+                    <button class="nav-item" onclick="showDashboardContent('messages', event)" aria-controls="messages">Meddelanden</button>
+                    <button class="nav-item" onclick="showDashboardContent('profile', event)" aria-controls="profile">Min profil</button>
+                    <button class="nav-item" onclick="showDashboardContent('matching', event)" aria-controls="matching">Jobbmatchning</button>
+                </div>
+
+                <div class="dashboard-content active" id="recommendations">
+                    <h3>Rekommenderade jobb för dig</h3>
+                    <p>Baserat på dina preferenser och behov</p>
+                    
+                    <div class="partner-integration">
+                        <h4>Dina registreringar</h4>
+                        <div class="registration-status">
+                            <div class="status-item">
+                                <span class="status-icon arbetsformedlingen">AF</span>
+                                <div class="status-info">
+                                    <strong>Arbetsförmedlingen</strong>
+                                    <p>Registrerad som arbetssökande</p>
+                                    <span class="status-badge active">Aktiv</span>
+                                </div>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-icon samhall">S</span>
+                                <div class="status-info">
+                                    <strong>Samhall</strong>
+                                    <p>Berättigad till anställning</p>
+                                    <span class="status-badge eligible">Berättigad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <div class="match-percentage">95% Match</div>
+                        <h4>🎯 Kundtjänstmedarbetare - TechSupport AB</h4>
+                        <p>Perfekt match! Detta jobb erbjuder flexibla arbetstider och hemarbete - precis som du föredrar. Företaget har även erfarenhet av hjälpmedel för hörsel.</p>
+                        <div class="recommendation-actions">
+                            <button class="apply-btn">Visa jobb</button>
+                            <button class="save-btn-small" onclick="toggleSave(this)" aria-label="Spara jobb">♡</button>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="match-percentage">88% Match</div>
+                        <h4>🎯 IT-supporter - Digital Solutions</h4>
+                        <p>Bra match! Rullstolsanpassad lokal och ergonomisk arbetsplats. Deras arbetscoach-program passar dina önskemål om extra stöd.</p>
+                        <div class="recommendation-actions">
+                            <button class="apply-btn">Visa jobb</button>
+                            <button class="save-btn-small" onclick="toggleSave(this)" aria-label="Spara jobb">♡</button>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <div class="match-percentage">92% Match</div>
+                        <h4>🎯 Dataanalytiker - Data Insights AB</h4>
+                        <p>Utmärkt match! 100% distansarbete och autism-vänlig struktur. Perfekt för dig som föredrar att arbeta i egen takt med visuella verktyg.</p>
+                        <div class="recommendation-actions">
+                            <button class="apply-btn">Visa jobb</button>
+                            <button class="save-btn-small" onclick="toggleSave(this)" aria-label="Spara jobb">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content" id="saved">
+                    <h3>Sparade jobb</h3>
+                    <div class="saved-jobs-list">
+                        <div class="job-card saved">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Grafisk designer</div>
+                                    <div class="job-company">Creative Studio, Stockholm</div>
+                                </div>
+                                <button class="save-btn saved" onclick="toggleSave(this)" title="Ta bort från sparade" aria-label="Ta bort från sparade jobb">♥</button>
+                            </div>
+                            <div class="job-meta">
+                                <span>Deltid</span>
+                                <span>25 000 - 35 000 kr</span>
+                                <span>Kreativ/Design</span>
+                            </div>
+                            <div class="job-actions">
+                                <button class="apply-btn">Ansök nu</button>
+                                <button class="message-btn">Ställ fråga</button>
+                            </div>
+                        </div>
+
+                        <div class="job-card saved">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">Webbutvecklare</div>
+                                    <div class="job-company">Inclusive Tech, Stockholm</div>
+                                </div>
+                                <button class="save-btn saved" onclick="toggleSave(this)" title="Ta bort från sparade" aria-label="Ta bort från sparade jobb">♥</button>
+                            </div>
+                            <div class="job-meta">
+                                <span>Heltid</span>
+                                <span>35 000 - 45 000 kr</span>
+                                <span>IT/Teknik</span>
+                            </div>
+                            <div class="job-actions">
+                                <button class="apply-btn">Ansök nu</button>
+                                <button class="message-btn">Ställ fråga</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content" id="matching">
+                    <h3>Intelligent Jobbmatchning</h3>
+                    <p>Baserat på dina preferenser och behov hittar vi de bästa jobben för dig</p>
+                    
+                    <div class="matching-preferences">
+                        <h4>Dina matchningspreferenser</h4>
+                        <div class="preference-grid">
+                            <div class="preference-card">
+                                <h5><i class="fas fa-home"></i> Arbetsplats</h5>
+                                <div class="preference-options">
+                                    <label><input type="checkbox" checked> Distansarbete</label>
+                                    <label><input type="checkbox"> Hybridarbete</label>
+                                    <label><input type="checkbox"> Kontorsarbete</label>
+                                </div>
+                            </div>
+                            <div class="preference-card">
+                                <h5><i class="fas fa-clock"></i> Arbetstid</h5>
+                                <div class="preference-options">
+                                    <label><input type="checkbox" checked> Flexibla tider</label>
+                                    <label><input type="checkbox"> Heltid</label>
+                                    <label><input type="checkbox" checked> Deltid</label>
+                                </div>
+                            </div>
+                            <div class="preference-card">
+                                <h5><i class="fas fa-tools"></i> Anpassningar</h5>
+                                <div class="preference-options">
+                                    <label><input type="checkbox" checked> Hjälpmedel för hörsel</label>
+                                    <label><input type="checkbox"> Tyst miljö</label>
+                                    <label><input type="checkbox" checked> Extra stöd</label>
+                                    <label><input type="checkbox" checked> Personlig coach</label>
+                                    <label><input type="checkbox"> Teckentolk</label>
+                                </div>
+                            </div>
+                            <div class="preference-card">
+                                <h5>Arbetsgivare</h5>
+                                <div class="preference-options">
+                                    <label><input type="checkbox" checked> Privata företag</label>
+                                    <label><input type="checkbox" checked> Offentlig sektor</label>
+                                    <label><input type="checkbox"> Ideella organisationer</label>
+                                    <label><input type="checkbox" checked> Samhall</label>
+                                    <label><input type="checkbox" checked> AF-partners</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="update-preferences-btn">Uppdatera preferenser</button>
+                    </div>
+
+                    <div class="matching-results">
+                        <h4>Nya matchningar baserat på dina preferenser</h4>
+                        <div class="match-notification">
+                            <i class="fas fa-bell"></i>
+                            <span>5 nya jobb matchar dina preferenser denna vecka!</span>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <div class="job-header">
+                                <div>
+                                    <h4 class="job-title">UX Designer</h4>
+                                    <p class="job-company">Design Studio, Stockholm</p>
+                                    <span class="partner-badge samhall">Samhall</span>
+                                </div>
+                                <span class="match-percentage">94% match</span>
+                            </div>
+                            <p class="job-description">Skapa användarvänliga gränssnitt med fokus på tillgänglighet. Perfekt för kreativa personer som vill göra skillnad.</p>
+                            <div class="job-meta">
+                                <span class="job-type">Heltid</span>
+                                <span class="category">Design</span>
+                                <span class="support-level">Samhall-anställning</span>
+                            </div>
+                            <div class="recommendation-actions">
+                                <button class="apply-btn" onclick="applyToJob('ux-designer-1')">Ansök nu</button>
+                                <button class="save-btn-small" onclick="toggleSave(this)" aria-label="Spara jobb">♡</button>
+                            </div>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <div class="job-header">
+                                <div>
+                                    <h4 class="job-title">Administratör</h4>
+                                    <p class="job-company">Kommun Göteborg, Göteborg</p>
+                                    <span class="partner-badge arbetsformedlingen">Arbetsförmedlingen</span>
+                                </div>
+                                <span class="match-percentage">89% match</span>
+                            </div>
+                            <p class="job-description">Hantera administrativa uppgifter i en strukturerad miljö. Stödjande kollegor och tydliga rutiner.</p>
+                            <div class="job-meta">
+                                <span class="job-type">Deltid</span>
+                                <span class="category">Administration</span>
+                                <span class="support-level">Lönebidrag</span>
+                            </div>
+                            <div class="recommendation-actions">
+                                <button class="apply-btn" onclick="applyToJob('admin-1')">Ansök nu</button>
+                                <button class="save-btn-small" onclick="toggleSave(this)" aria-label="Spara jobb">♡</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content" id="applications">
+                    <h3>Mina ansökningar</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Aktiva ansökningar</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label">Intervjuer</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Totalt skickade</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">AF-matchningar</div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-card">
+                        <div class="job-title">Kundtjänstmedarbetare</div>
+                        <div class="job-company">TechSupport AB</div>
+                        <span class="partner-badge arbetsformedlingen">Arbetsförmedlingen</span>
+                        <div class="job-meta">
+                            <span class="status-badge reviewing">Under granskning</span>
+                            <span>Skickad 2025-01-02</span>
+                        </div>
+                        <p><strong>Stöd:</strong> Lönebidrag beviljat, personlig coach tilldelad</p>
+                        <div class="application-actions">
+                            <button class="message-btn">Kontakta arbetsgivare</button>
+                            <button class="withdraw-btn">Dra tillbaka ansökan</button>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-title">Webbutvecklare</div>
+                        <div class="job-company">Inclusive Tech</div>
+                        <span class="partner-badge samhall">Samhall</span>
+                        <div class="job-meta">
+                            <span class="status-badge interview">Intervju inbokad</span>
+                            <span>Skickad 2024-12-28</span>
+                        </div>
+                        <p><strong>Stöd:</strong> Samhall-anställning, mentorskap inkluderat</p>
+                        <div class="application-actions">
+                            <button class="message-btn">Visa intervjudetaljer</button>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-title">Dataanalytiker</div>
+                        <div class="job-company">Data Insights AB</div>
+                        <span class="partner-badge samhall">Samhall</span>
+                        <div class="job-meta">
+                            <span class="status-badge accepted">Erbjudande mottaget</span>
+                            <span>Skickad 2024-12-20</span>
+                        </div>
+                        <p><strong>Stöd:</strong> Autism-anpassad arbetsplats, strukturerat introduktionsprogram</p>
+                        <div class="application-actions">
+                            <button class="accept-btn">Acceptera erbjudande</button>
+                            <button class="decline-btn">Avböj erbjudande</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content" id="messages">
+                    <h3>Meddelanden</h3>
+                    <div class="messaging-panel">
+                        <div class="conversations-list">
+                            <div class="conversation-item active" onclick="openConversation('techsupport')">
+                                <div class="conversation-avatar">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="conversation-info">
+                                    <div class="conversation-name">TechSupport AB</div>
+                                    <div class="conversation-preview">Intervju bekräftad för måndag...</div>
+                                    <div class="conversation-time">2025-01-03</div>
+                                </div>
+                                <div class="unread-badge">2</div>
+                                <span class="partner-indicator arbetsformedlingen">AF</span>
+                            </div>
+                            <div class="conversation-item" onclick="openConversation('inclusive-tech')">
+                                <div class="conversation-avatar">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="conversation-info">
+                                    <div class="conversation-name">Inclusive Tech</div>
+                                    <div class="conversation-preview">Tack för din ansökan!</div>
+                                    <div class="conversation-time">2025-01-02</div>
+                                </div>
+                                <span class="partner-indicator samhall">S</span>
+                            </div>
+                            <div class="conversation-item" onclick="openConversation('data-insights')">
+                                <div class="conversation-avatar">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="conversation-info">
+                                    <div class="conversation-name">Data Insights AB</div>
+                                    <div class="conversation-preview">Grattis! Vi vill erbjuda dig...</div>
+                                    <div class="conversation-time">2024-12-30</div>
+                                </div>
+                                <div class="unread-badge">1</div>
+                                <span class="partner-indicator samhall">S</span>
+                            </div>
+                            
+                            <div class="conversation-item" onclick="openConversation('arbetsformedlingen')">
+                                <div class="conversation-avatar">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="conversation-info">
+                                    <div class="conversation-name">Arbetsförmedlingen</div>
+                                    <div class="conversation-preview">Nya matchningar tillgängliga...</div>
+                                    <div class="conversation-time">2024-12-30</div>
+                                </div>
+                                <span class="partner-indicator arbetsformedlingen">AF</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-area">
+                            <div class="chat-header">
+                                <h4>TechSupport AB</h4>
+                                <div class="chat-actions">
+                                    <button class="video-call-btn" title="Videomöte">
+                                        <i class="fas fa-video"></i>
+                                    </button>
+                                    <button class="phone-call-btn" title="Telefonsamtal">
+                                        <i class="fas fa-phone"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="message received">
+                                    <div class="message-content">
+                                        Hej Anna! Vi skulle gärna vilja bjuda in dig till en intervju nästa vecka. Vilka dagar passar dig bäst?
+                                    </div>
+                                    <div class="message-time">2025-01-03 14:30</div>
+                                </div>
+                                <div class="message received">
+                                    <div class="message-content">
+                                        Vi kan erbjuda intervjun via videolänk om det passar dig bättre.
+                                    </div>
+                                    <div class="message-time">2025-01-03 14:32</div>
+                                </div>
+                                <div class="message sent">
+                                    <div class="message-content">
+                                        Hej! Tack så mycket för erbjudandet. Videointervju låter perfekt. Måndag eller tisdag nästa vecka passar mig bra.
+                                    </div>
+                                    <div class="message-time">2025-01-03 15:45</div>
+                                </div>
+                                <div class="message received">
+                                    <div class="message-content">Perfekt! Vi bokar in dig för måndag 8 januari kl. 14:00. Du kommer att få en personlig coach som stöd under processen via Arbetsförmedlingen.</div>
+                                    <div class="message-time">2025-01-03 16:00</div>
+                                </div>
+                            </div>
+                            
+                            <div class="message-input">
+                                <input type="text" placeholder="Skriv ett meddelande..." id="messageInput">
+                                <button class="attachment-btn" title="Bifoga fil">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <button class="send-btn" onclick="sendMessage()">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content" id="profile">
+                    <h3>Min profil</h3>
+                    <div class="form-container">
+                        <div class="profile-photo-section">
+                            <div class="photo-upload">
+                                <div class="current-photo">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="photo-actions">
+                                    <button class="upload-photo-btn">
+                                        <i class="fas fa-camera"></i> Ladda upp foto
+                                    </button>
+                                    <input type="file" id="profilePhoto" accept="image/*" style="display: none;">
+                                </div>
+                            </div>
+                            <div class="video-intro-section">
+                                <h4>Videopresentation</h4>
+                                <div class="video-upload-area">
+                                    <div class="video-placeholder">
+                                        <i class="fas fa-video"></i>
+                                        <p>Ingen videopresentation uppladdad</p>
+                                    </div>
+                                    <button class="upload-video-btn">
+                                        <i class="fas fa-video"></i> Spela in presentation
+                                    </button>
+                                    <input type="file" id="videoIntro" accept="video/*" style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="af-registration">Arbetsförmedlingen registreringsnummer</label>
+                            <input type="text" id="af-registration" placeholder="t.ex. AF123456789">
+                            <small>Ange ditt registreringsnummer hos Arbetsförmedlingen för att få tillgång till fler jobbmöjligheter</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Stödinsatser du är berättigad till</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="lonebidrag" name="support" value="lonebidrag">
+                                    <label for="lonebidrag">Lönebidrag</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="aktivitetsstod" name="support" value="aktivitetsstod">
+                                    <label for="aktivitetsstod">Aktivitetsstöd</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="samhall" name="support" value="samhall">
+                                    <label for="samhall">Samhall-anställning</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="trygghetsanstallning" name="support" value="trygghetsanstallning">
+                                    <label for="trygghetsanstallning">Trygghetsanställning</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Namn</label>
+                            <input type="text" value="Anna Andersson">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" value="anna@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            <input type="tel" value="08-123 456 78">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Plats</label>
+                            <input type="text" value="Stockholm">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Färdigheter</label>
+                            <textarea rows="3" placeholder="Beskriv dina färdigheter och kompetenser...">Kundservice, teknisk support, flerspråkig (svenska, engelska), Microsoft Office, CRM-system</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Anpassningsbehov</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="profile-flexible-hours" checked>
+                                    <label for="profile-flexible-hours">Flexibla arbetstider</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="profile-remote-work" checked>
+                                    <label for="profile-remote-work">Möjlighet till hemarbete</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="profile-hearing-aids" checked>
+                                    <label for="profile-hearing-aids">Hjälpmedel för hörsel</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="profile-extra-support" checked>
+                                    <label for="profile-extra-support">Extra introduktions-/jobsstöd</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="personal-coach" name="accommodations" value="personal-coach">
+                                    <label for="personal-coach">Personlig coach</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="sign-language" name="accommodations" value="sign-language">
+                                    <label for="sign-language">Teckenspråkstolk</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="structured-work" name="accommodations" value="structured-work">
+                                    <label for="structured-work">Strukturerat arbetssätt</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="submit-btn">Uppdatera profil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Job Details Modal -->
+        <div class="modal" id="jobDetailsModal" role="dialog" aria-modal="true" aria-labelledby="modalJobTitle">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalJobTitle">Jobbtitel</h2>
+                    <button class="close-modal" onclick="closeModal('jobDetailsModal')" aria-label="Stäng jobbdetaljer">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="job-details-content">
+                        <div class="company-info">
+                            <h3 id="modalCompanyName">Företagsnamn</h3>
+                            <p id="modalJobLocation">Plats</p>
+                        </div>
+                        <div class="job-description-full">
+                            <h4>Beskrivning</h4>
+                            <p id="modalJobDescription">Fullständig jobbeskrivning...</p>
+                        </div>
+                        <div class="requirements">
+                            <h4>Krav</h4>
+                            <ul id="modalJobRequirements">
+                                <li>Krav 1</li>
+                                <li>Krav 2</li>
+                            </ul>
+                        </div>
+                        <div class="accessibility-info">
+                            <h4>Tillgänglighetsanpassningar</h4>
+                            <div id="modalAccessibilityFeatures">
+                                <!-- Features will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="apply-btn" id="modalApplyBtn">
+                        <i class="fas fa-paper-plane"></i> Ansök nu
+                    </button>
+                    <button class="message-btn" id="modalMessageBtn">
+                        <i class="fas fa-comment"></i> Ställ fråga
+                    </button>
+                    <button class="save-btn-modal" id="modalSaveBtn">
+                        <i class="fas fa-heart"></i> Spara jobb
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Modal -->
+        <div class="modal" id="applicationModal" role="dialog" aria-modal="true" aria-labelledby="applicationJobTitle">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Ansök till <span id="applicationJobTitle">Jobbtitel</span></h2>
+                    <button class="close-modal" onclick="closeModal('applicationModal')" aria-label="Stäng ansökningsformulär">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="applicationForm">
+                        <div class="form-group">
+                            <label for="personal-letter">Personligt brev</label>
+                            <textarea id="personal-letter" rows="6" placeholder="Berätta varför du är intresserad av denna tjänst och vad du kan bidra med..." aria-required="true"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvUpload">CV</label>
+                            <div class="file-upload">
+                                <input type="file" id="cvUpload" accept=".pdf,.doc,.docx">
+                                <label for="cvUpload" class="file-upload-label">
+                                    <i class="fas fa-upload"></i> Välj CV-fil
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="other-info">Övrigt</label>
+                            <textarea id="other-info" rows="3" placeholder="Ytterligare information eller frågor..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="submit-btn" onclick="submitApplication()">
+                        <i class="fas fa-paper-plane"></i> Skicka ansökan
+                    </button>
+                    <button class="cancel-btn" onclick="closeModal('applicationModal')">
+                        Avbryt
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Job Seeker Registration -->
+        <div class="page" id="jobseeker">
+            <div class="header">
+                <h1>Registrera dig som arbetssökande</h1>
+                <p>Berätta om dig själv så vi kan hjälpa dig hitta rätt jobb</p>
+            </div>
+            
+            <div class="form-container">
+                <button class="back-btn" onclick="showPage('landing')">← Tillbaka</button>
+                
+                <div class="form-header">
+                    <h2>Skapa din profil</h2>
+                    <p>All information behandlas konfidentiellt enligt GDPR</p>
+                </div>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="name">Namn *</label>
+                        <input type="text" id="name" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-post *</label>
+                        <input type="email" id="email" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefon *</label>
+                        <input type="tel" id="phone" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Plats *</label>
+                        <select id="location" required aria-required="true" aria-label="Välj plats">
+                            <option value="">Välj plats</option>
+                            <option value="stockholm">Stockholm</option>
+                            <option value="goteborg">Göteborg</option>
+                            <option value="malmo">Malmö</option>
+                            <option value="uppsala">Uppsala</option>
+                            <option value="other">Annan ort</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Arbetslivserfarenhet</label>
+                        <textarea id="experience" rows="4" placeholder="Beskriv din tidigare arbetslivserfarenhet..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills">Färdigheter och kompetenser</label>
+                        <textarea id="skills" rows="3" placeholder="T.ex. programmeringsspråk, språkkunskaper, certifieringar..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="job-type">Typ av anställning *</label>
+                        <select id="job-type" required aria-required="true" aria-label="Välj typ av anställning">
+                            <option value="">Välj typ</option>
+                            <option value="fulltime">Heltid</option>
+                            <option value="parttime">Deltid</option>
+                            <option value="internship">Praktik</option>
+                            <option value="consultant">Konsultuppdrag</option>
+                            <option value="flexible">Flexibel</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label id="accessibility-needs-label">Anpassningsbehov och tillgänglighet</label>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;" id="accessibility-needs-description">
+                            Hjälp oss förstå vilka anpassningar som skulle göra din arbetsplats optimal. All information är frivillig och konfidentiell.
+                        </p>
+                        
+                        <div class="checkbox-group" aria-labelledby="accessibility-needs-label" aria-describedby="accessibility-needs-description">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="flexible-hours">
+                                <label for="flexible-hours">Flexibla arbetstider</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="remote-work">
+                                <label for="remote-work">Möjlighet till hemarbete</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="wheelchair-access">
+                                <label for="wheelchair-access">Rullstolsanpassad arbetsplats</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="hearing-aids">
+                                <label for="hearing-aids">Hjälpmedel för hörsel</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="visual-aids">
+                                <label for="visual-aids">Synhjälpmedel (skärmläsare, förstoring)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ergonomic">
+                                <label for="ergonomic">Ergonomiska hjälpmedel</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="quiet-environment">
+                                <label for="quiet-environment">Tyst arbetsmiljö</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="extra-support">
+                                <label for="extra-support">Extra introduktions-/jobsstöd</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="other-needs">Andra anpassningsbehov <span class="optional-label">(frivilligt)</span></label>
+                        <textarea id="other-needs" rows="3" placeholder="Beskriv andra anpassningar som skulle underlätta ditt arbete..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cv-upload">Ladda upp CV <span class="optional-label">(frivilligt)</span></label>
+                        <input type="file" id="cv-upload" accept=".pdf,.doc,.docx">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label id="video-presentation-label">Videopresentation <span class="optional-label">(frivilligt)</span></label>
+                        <div class="video-upload" aria-labelledby="video-presentation-label" aria-describedby="video-presentation-description">
+                            <div class="video-record-options">
+                                <button type="button" class="record-video-btn" onclick="startVideoRecording()">
+                                    <i class="fas fa-video"></i> Spela in video
+                                </button>
+                                <span class="or-divider">eller</span>
+                                <input type="file" id="videoFile" accept="video/*" style="display: none;">
+                                <label for="videoFile" class="upload-video-btn">
+                                    <i class="fas fa-upload"></i> Ladda upp video
+                                </label>
+                            </div>
+                            <div class="video-preview" id="videoPreview" style="display: none;">
+                                <video controls width="300"></video>
+                                <button type="button" class="remove-video-btn" onclick="removeVideo()">
+                                    <i class="fas fa-trash"></i> Ta bort
+                                </button>
+                            </div>
+                            <p style="font-size: 0.9em; color: #666; margin-top: 10px;" id="video-presentation-description">
+                                En kort videopresentation (max 2 minuter) kan hjälpa arbetsgivare att lära känna dig bättre
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="terms" required aria-required="true">
+                            <label for="terms">Jag godkänner <a href="#" style="color: #667eea;">användarvillkor</a> och <a href="#" style="color: #667eea;">integritetspolicy</a> *</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="newsletter">
+                            <label for="newsletter">Jag vill få tips om jobb och karriärmöjligheter via e-post</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" onclick="showPage('dashboard')">Skapa profil</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Employer Dashboard -->
+        <div class="page" id="employer-dashboard">
+            <div class="header">
+                <h1>Arbetsgivardashboard</h1>
+                <p>Välkommen, TechSupport AB!</p>
+            </div>
+            
+            <div class="dashboard">
+                <div class="dashboard-nav">
+                    <button class="nav-item active" onclick="showEmployerContent('candidates', event)" aria-controls="candidates">Kandidater</button>
+                    <button class="nav-item" onclick="showEmployerContent('job-posts', event)" aria-controls="job-posts">Mina annonser</button>
+                    <button class="nav-item" onclick="showEmployerContent('applications', event)" aria-controls="applications">Ansökningar</button>
+                    <button class="nav-item" onclick="showEmployerContent('messages', event)" aria-controls="messages">Meddelanden</button>
+                    <button class="nav-item" onclick="showEmployerContent('company-profile', event)" aria-controls="company-profile">Företagsprofil</button>
+                </div>
+
+                <div class="dashboard-content active" id="candidates">
+                    <h3>Kandidatsökning</h3>
+                    <div class="candidate-search">
+                        <div class="search-filters">
+                            <input type="text" placeholder="Sök kandidater..." class="candidate-search-input">
+                            <select class="filter-select" aria-label="Alla färdigheter">
+                                <option>Alla färdigheter</option>
+                                <option>Kundservice</option>
+                                <option>IT/Teknik</option>
+                                <option>Design</option>
+                                <option>Analys</option>
+                            </select>
+                            <select class="filter-select" aria-label="Alla anpassningar">
+                                <option>Alla anpassningar</option>
+                                <option>Flexibla arbetstider</option>
+                                <option>Distansarbete</option>
+                                <option>Hjälpmedel</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="candidates-list">
+                        <div class="candidate-card">
+                            <div class="candidate-header">
+                                <div class="candidate-photo">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="candidate-info">
+                                    <h4>Anna Andersson</h4>
+                                    <p>Kundservice & Teknisk support</p>
+                                    <div class="candidate-location">
+                                        <i class="fas fa-map-marker-alt"></i> Stockholm
+                                    </div>
+                                </div>
+                                <div class="match-percentage">95% Match</div>
+                            </div>
+                            <div class="candidate-skills">
+                                <span class="skill-tag">Kundservice</span>
+                                <span class="skill-tag">Teknisk support</span>
+                                <span class="skill-tag">Flerspråkig</span>
+                                <span class="skill-tag">CRM-system</span>
+                            </div>
+                            <div class="candidate-accommodations">
+                                <h5>Anpassningsbehov:</h5>
+                                <span class="accommodation-tag">Flexibla arbetstider</span>
+                                <span class="accommodation-tag">Hemarbete</span>
+                                <span class="accommodation-tag">Hjälpmedel för hörsel</span>
+                            </div>
+                            <div class="candidate-actions">
+                                <button class="contact-btn">Kontakta</button>
+                                <button class="view-profile-btn">Visa profil</button>
+                                <button class="invite-btn">Bjud in till intervju</button>
+                            </div>
+                        </div>
+
+                        <div class="candidate-card">
+                            <div class="candidate-header">
+                                <div class="candidate-photo">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="candidate-info">
+                                    <h4>Erik Johansson</h4>
+                                    <p>Webbutvecklare & UX Designer</p>
+                                    <div class="candidate-location">
+                                        <i class="fas fa-map-marker-alt"></i> Göteborg
+                                    </div>
+                                </div>
+                                <div class="match-percentage">88% Match</div>
+                            </div>
+                            <div class="candidate-skills">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">UX Design</span>
+                                <span class="skill-tag">Tillgänglighet</span>
+                            </div>
+                            <div class="candidate-accommodations">
+                                <h5>Anpassningsbehov:</h5>
+                                <span class="accommodation-tag">Tyst miljö</span>
+                                <span class="accommodation-tag">Strukturerad arbetsmiljö</span>
+                                <span class="accommodation-tag">Distansarbete</span>
+                            </div>
+                            <div class="candidate-actions">
+                                <button class="contact-btn">Kontakta</button>
+                                <button class="view-profile-btn">Visa profil</button>
+                                <button class="invite-btn">Bjud in till intervju</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content" id="job-posts">
+                    <h3>Mina jobbannonser</h3>
+                    <button class="create-job-btn">
+                        <i class="fas fa-plus"></i> Skapa ny annons
+                    </button>
+                    
+                    <div class="job-posts-list">
+                        <div class="job-post-card">
+                            <div class="job-post-header">
+                                <h4>Kundtjänstmedarbetare</h4>
+                                <div class="job-status active">Aktiv</div>
+                            </div>
+                            <div class="job-post-stats">
+                                <div class="stat">
+                                    <span class="stat-number">24</span>
+                                    <span class="stat-label">Ansökningar</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">156</span>
+                                    <span class="stat-label">Visningar</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Intervjuer</span>
+                                </div>
+                            </div>
+                            <div class="job-post-actions">
+                                <button class="edit-btn">Redigera</button>
+                                <button class="view-applications-btn">Visa ansökningar</button>
+                                <button class="pause-btn">Pausa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content" id="company-profile">
+                    <h3>Företagsprofil</h3>
+                    <div class="form-container">
+                        <div class="form-group">
+                            <label>Företagsnamn</label>
+                            <input type="text" value="TechSupport AB">
+                        </div>
+                        <div class="form-group">
+                            <label>Bransch</label>
+                            <select aria-label="Bransch">
+                                <option selected>Teknik/IT</option>
+                                <option>Hälso- och sjukvård</option>
+                                <option>Utbildning</option>
+                                <option>Handel</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Företagsbeskrivning</label>
+                            <textarea rows="4">Vi är ett teknikföretag som specialiserar oss på kundtjänst och teknisk support. Vi värdesätter mångfald och inkludering i vår arbetsmiljö.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label id="employer-accessibility-label">Tillgänglighetsanpassningar vi erbjuder</label>
+                            <div class="checkbox-group" aria-labelledby="employer-accessibility-label">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" checked>
+                                    <label>Flexibla arbetstider</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" checked>
+                                    <label>Distansarbete/hemarbete</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" checked>
+                                    <label>Hjälpmedel för hörselnedsättning</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox">
+                                    <label>Rullstolsanpassade lokaler</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="submit-btn">Uppdatera profil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employer Registration -->
+        <div class="page" id="employer">
+            <div class="header">
+                <h1>Registrera ditt företag</h1>
+                <p>Hitta rätt kandidater och bygg en inkluderande arbetsplats</p>
+            </div>
+            
+            <div class="form-container">
+                <button class="back-btn" onclick="showPage('landing')">← Tillbaka</button>
+                
+                <div class="form-header">
+                    <h2>Företagsprofil</h2>
+                    <p>Berätta om ert företag och vilka anpassningar ni kan erbjuda</p>
+                </div>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="company-name">Företagsnamn *</label>
+                        <input type="text" id="company-name" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="org-number">Organisationsnummer *</label>
+                        <input type="text" id="org-number" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-person">Kontaktperson *</label>
+                        <input type="text" id="contact-person" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">Kontakt e-post *</label>
+                        <input type="email" id="contact-email" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-size">Företagsstorlek *</label>
+                        <select id="company-size" required aria-required="true" aria-label="Välj företagsstorlek">
+                            <option value="">Välj storlek</option>
+                            <option value="1-10">1-10 anställda</option>
+                            <option value="11-50">11-50 anställda</option>
+                            <option value="51-200">51-200 anställda</option>
+                            <option value="201-1000">201-1000 anställda</option>
+                            <option value="1000+">1000+ anställda</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="industry">Bransch *</label>
+                        <select id="industry" required aria-required="true" aria-label="Välj bransch">
+                            <option value="">Välj bransch</option>
+                            <option value="tech">Teknik/IT</option>
+                            <option value="healthcare">Hälso- och sjukvård</option>
+                            <option value="education">Utbildning</option>
+                            <option value="retail">Handel</option>
+                            <option value="manufacturing">Tillverkning</option>
+                            <option value="finance">Finans</option>
+                            <option value="logistics">Logistik</option>
+                            <option value="other">Annan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company-description">Företagsbeskrivning</label>
+                        <textarea id="company-description" rows="4" placeholder="Beskriv ert företag, värderingar och arbetsmiljö..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label id="employer-offer-accessibility-label">Tillgänglighetsanpassningar ni kan erbjuda</label>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;" id="employer-offer-accessibility-description">
+                            Markera de anpassningar ert företag kan eller är villiga att implementera
+                        </p>
+                        
+                        <div class="checkbox-group" aria-labelledby="employer-offer-accessibility-label" aria-describedby="employer-offer-accessibility-description">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-flexible-hours">
+                                <label for="emp-flexible-hours">Flexibla arbetstider</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-remote-work">
+                                <label for="emp-remote-work">Distansarbete/hemarbete</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-wheelchair-access">
+                                <label for="emp-wheelchair-access">Rullstolsanpassade lokaler</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-hearing-aids">
+                                <label for="emp-hearing-aids">Hjälpmedel för hörselnedsättning</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-visual-aids">
+                                <label for="emp-visual-aids">Synhjälpmedel och programvara</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-ergonomic">
+                                <label for="emp-ergonomic">Ergonomiska arbetsstationer</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-quiet-environment">
+                                <label for="emp-quiet-environment">Tyst/lugn arbetsmiljö</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-job-coach">
+                                <label for="emp-job-coach">Arbetscoach/extra stöd vid introduktion</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-modified-tasks">
+                                <label for="emp-modified-tasks">Anpassade arbetsuppgifter</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="emp-transport">
+                                <label for="emp-transport">Transportstöd/närhet till kollektivtrafik</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="diversity-experience">Erfarenhet av mångfald och inkludering <span class="optional-label">(frivilligt)</span></label>
+                        <textarea id="diversity-experience" rows="3" placeholder="Beskriv er tidigare erfarenhet av att arbeta med inkludering och anställa personer med funktionsnedsättning..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="support-needed">Stöd ni behöver <span class="optional-label">(frivilligt)</span></label>
+                        <textarea id="support-needed" rows="3" placeholder="Vilken typ av stöd eller råd skulle ni behöva för att skapa en mer inkluderande arbetsplats?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="emp-terms" required aria-required="true">
+                            <label for="emp-terms">Jag godkänner användarvillkor och integritetspolicy *</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="emp-newsletter">
+                            <label for="emp-newsletter">Jag vill få information om rekrytering och inkludering via e-post</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Registrera företag</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div class="page" id="login">
+            <div class="header">
+                <h1>Logga in</h1>
+                <p>Välkommen tillbaka till InclusioJobs</p>
+            </div>
+            
+            <div class="form-container">
+                <button class="back-btn" onclick="showPage('landing')">← Tillbaka</button>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="login-email">E-post</label>
+                        <input type="email" id="login-email" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Lösenord</label>
+                        <input type="password" id="login-password" required aria-required="true">
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Kom ihåg mig</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Logga in</button>
+                    
+                    <div style="text-align: center; margin-top: 20px;">
+                        <a href="#" style="color: #667eea;">Glömt lösenord?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Register Page -->
+        <div class="page" id="register">
+            <div class="header">
+                <h1>Välj kontotyp</h1>
+                <p>Skapa ditt konto på InclusioJobs</p>
+            </div>
+            
+            <div class="hero">
+                <button class="back-btn" onclick="showPage('landing')">← Tillbaka</button>
+                
+                <div class="button-container">
+                    <a href="#" class="main-button jobseeker-btn" onclick="showPage('jobseeker')">
+                        <div class="button-icon">👤</div>
+                        <div class="button-title">Arbetssökande</div>
+                        <div class="button-subtitle">Skapa profil och hitta jobb</div>
+                    </a>
+                    
+                    <a href="#" class="main-button employer-btn" onclick="showPage('employer')">
+                        <div class="button-icon">🏢</div>
+                        <div class="button-title">Arbetsgivare</div>
+                        <div class="button-subtitle">Registrera företag och hitta kandidater</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
