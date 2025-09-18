@@ -513,6 +513,117 @@ body {
     font-size: 0.9em;
 }
 
+.partner-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.partner-badge.arbetsformedlingen {
+    background: #0066cc;
+    color: white;
+}
+
+.partner-badge.samhall {
+    background: #ff6b35;
+    color: white;
+}
+
+.support-level {
+    background: #17a2b8 !important;
+    color: white !important;
+}
+
+.partner-integration {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.registration-status {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex: 1;
+}
+
+.status-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.status-icon.arbetsformedlingen {
+    background: #0066cc;
+}
+
+.status-icon.samhall {
+    background: #ff6b35;
+}
+
+.status-info {
+    flex: 1;
+}
+
+.status-info strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.status-info p {
+    margin: 0 0 8px 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.status-badge.eligible {
+    background: #28a745;
+    color: white;
+}
+
+.partner-indicator {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: white;
+}
+
+.partner-indicator.arbetsformedlingen {
+    background: #0066cc;
+}
+
+.partner-indicator.samhall {
+    background: #ff6b35;
+}
+
 .job-actions {
     display: flex;
     gap: 10px;
@@ -1673,5 +1784,11 @@ body.extra-large-font {
     .job-post-stats {
         flex-direction: column;
         gap: 15px;
+    }
+    
+    .partner-badge {
+        margin-top: 8px;
+        display: block;
+        width: fit-content;
     }
 }

@@ -83,6 +83,12 @@
                                 <option>Utbildning</option>
                                 <option>Handel</option>
                             </select>
+                            <select class="filter-select" aria-label="Välj partner">
+                                <option value="Alla partners">Alla partners</option>
+                                <option value="Arbetsförmedlingen">Arbetsförmedlingen</option>
+                                <option value="Samhall">Samhall</option>
+                                <option value="Privat">Privat arbetsgivare</option>
+                            </select>
                         </div>
                         <div class="advanced-search">
                             <button class="toggle-advanced" onclick="toggleAdvancedSearch()">
@@ -132,6 +138,7 @@
                         <div>
                             <div class="job-title">Kundtjänstmedarbetare</div>
                             <div class="job-company">TechSupport AB, Stockholm</div>
+                            <span class="partner-badge arbetsformedlingen">Arbetsförmedlingen</span>
                         </div>
                         <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
                     </div>
@@ -140,6 +147,7 @@
                         <span class="salary">25 000 - 30 000 kr</span>
                         <span class="category">Kundservice</span>
                         <span class="match-score">95% Match</span>
+                        <span class="support-level">Lönebidrag tillgängligt</span>
                     </div>
                     <div class="job-description">
                         Vi söker en engagerad kundtjänstmedarbetare som vill hjälpa våra kunder med teknisk support via telefon och chat. Perfect för dig som vill arbeta med människor och teknologi.
@@ -151,6 +159,8 @@
                             <span class="feature-tag"><i class="fas fa-home"></i> Hemarbete möjligt</span>
                             <span class="feature-tag"><i class="fas fa-headphones"></i> Hjälpmedel för hörsel</span>
                             <span class="feature-tag"><i class="fas fa-user-graduate"></i> Extra introduktionsstöd</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Personlig coach</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Anpassad arbetsplats</span>
                         </div>
                     </div>
                     <div class="job-actions">
@@ -172,6 +182,7 @@
                         <div>
                             <div class="job-title">Webbutvecklare</div>
                             <div class="job-company">Inclusive Tech, Stockholm</div>
+                            <span class="partner-badge samhall">Samhall</span>
                         </div>
                         <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
                     </div>
@@ -180,6 +191,7 @@
                         <span class="salary">35 000 - 45 000 kr</span>
                         <span class="category">IT/Teknik</span>
                         <span class="match-score">88% Match</span>
+                        <span class="support-level">Samhall-anställning</span>
                     </div>
                     <div class="job-description">
                         Utveckla tillgängliga webbapplikationer med fokus på användarupplevelse. Vi värdesätter mångfald och har erfarenhet av neurodivergenta utvecklare.
@@ -191,6 +203,8 @@
                             <span class="feature-tag"><i class="fas fa-volume-mute"></i> Tyst arbetszon</span>
                             <span class="feature-tag"><i class="fas fa-laptop"></i> Specialiserad utrustning</span>
                             <span class="feature-tag"><i class="fas fa-calendar-alt"></i> Flexibel schemaläggning</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Mentorskap</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Strukturerat arbetssätt</span>
                         </div>
                     </div>
                     <div class="job-actions">
@@ -211,6 +225,7 @@
                         <div>
                             <div class="job-title">Vårdassistent</div>
                             <div class="job-company">Caring Hands, Göteborg</div>
+                            <span class="partner-badge arbetsformedlingen">Arbetsförmedlingen</span>
                         </div>
                         <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
                     </div>
@@ -219,6 +234,7 @@
                         <span class="salary">22 000 - 28 000 kr</span>
                         <span class="category">Hälso- och sjukvård</span>
                         <span class="match-score">92% Match</span>
+                        <span class="support-level">Aktivitetsstöd</span>
                     </div>
                     <div class="job-description">
                         Hjälp äldre personer i deras dagliga aktiviteter. Vi erbjuder en stödjande miljö där empati och omtanke värdesätts högt.
@@ -230,6 +246,8 @@
                             <span class="feature-tag"><i class="fas fa-hands-helping"></i> Personlig assistent</span>
                             <span class="feature-tag"><i class="fas fa-clock"></i> Anpassade arbetstider</span>
                             <span class="feature-tag"><i class="fas fa-heart"></i> Empatisk arbetsmiljö</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Kontinuerlig utbildning</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Stöd från arbetsterapeut</span>
                         </div>
                     </div>
                     <div class="job-actions">
@@ -250,6 +268,7 @@
                         <div>
                             <div class="job-title">Dataanalytiker</div>
                             <div class="job-company">Data Insights AB, Distans</div>
+                            <span class="partner-badge samhall">Samhall</span>
                         </div>
                         <button class="save-btn" onclick="toggleSave(this)" title="Spara jobb" aria-label="Spara jobb">♡</button>
                     </div>
@@ -258,6 +277,7 @@
                         <span>40 000 - 50 000 kr</span>
                         <span>IT/Analys</span>
                         <span class="match-score">85% Match</span>
+                        <span class="support-level">Autism-anpassat</span>
                     </div>
                     <div class="job-description">
                         Analysera data och skapa insikter för våra kunder. Perfekt för dig som gillar mönster, struktur och arbetar bäst i egen takt.
@@ -269,6 +289,8 @@
                             <span class="feature-tag"><i class="fas fa-brain"></i> Autism-vänlig struktur</span>
                             <span class="feature-tag"><i class="fas fa-chart-line"></i> Visuella verktyg</span>
                             <span class="feature-tag"><i class="fas fa-user-clock"></i> Egen arbetstakt</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Tydliga instruktioner</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Regelbunden feedback</span>
                         </div>
                     </div>
                     <div class="job-actions">
@@ -400,6 +422,28 @@
                     <h3>Rekommenderade jobb för dig</h3>
                     <p>Baserat på dina preferenser och behov</p>
                     
+                    <div class="partner-integration">
+                        <h4>Dina registreringar</h4>
+                        <div class="registration-status">
+                            <div class="status-item">
+                                <span class="status-icon arbetsformedlingen">AF</span>
+                                <div class="status-info">
+                                    <strong>Arbetsförmedlingen</strong>
+                                    <p>Registrerad som arbetssökande</p>
+                                    <span class="status-badge active">Aktiv</span>
+                                </div>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-icon samhall">S</span>
+                                <div class="status-info">
+                                    <strong>Samhall</strong>
+                                    <p>Berättigad till anställning</p>
+                                    <span class="status-badge eligible">Berättigad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="recommendation-card">
                         <div class="match-percentage">95% Match</div>
                         <h4>🎯 Kundtjänstmedarbetare - TechSupport AB</h4>
@@ -503,6 +547,18 @@
                                     <label><input type="checkbox" checked> Hjälpmedel för hörsel</label>
                                     <label><input type="checkbox"> Tyst miljö</label>
                                     <label><input type="checkbox" checked> Extra stöd</label>
+                                    <label><input type="checkbox" checked> Personlig coach</label>
+                                    <label><input type="checkbox"> Teckentolk</label>
+                                </div>
+                            </div>
+                            <div class="preference-card">
+                                <h5>Arbetsgivare</h5>
+                                <div class="preference-options">
+                                    <label><input type="checkbox" checked> Privata företag</label>
+                                    <label><input type="checkbox" checked> Offentlig sektor</label>
+                                    <label><input type="checkbox"> Ideella organisationer</label>
+                                    <label><input type="checkbox" checked> Samhall</label>
+                                    <label><input type="checkbox" checked> AF-partners</label>
                                 </div>
                             </div>
                         </div>
@@ -513,7 +569,49 @@
                         <h4>Nya matchningar baserat på dina preferenser</h4>
                         <div class="match-notification">
                             <i class="fas fa-bell"></i>
-                            <span>3 nya jobb matchar dina preferenser sedan igår!</span>
+                            <span>5 nya jobb matchar dina preferenser denna vecka!</span>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <div class="job-header">
+                                <div>
+                                    <h4 class="job-title">UX Designer</h4>
+                                    <p class="job-company">Design Studio, Stockholm</p>
+                                    <span class="partner-badge samhall">Samhall</span>
+                                </div>
+                                <span class="match-percentage">94% match</span>
+                            </div>
+                            <p class="job-description">Skapa användarvänliga gränssnitt med fokus på tillgänglighet. Perfekt för kreativa personer som vill göra skillnad.</p>
+                            <div class="job-meta">
+                                <span class="job-type">Heltid</span>
+                                <span class="category">Design</span>
+                                <span class="support-level">Samhall-anställning</span>
+                            </div>
+                            <div class="recommendation-actions">
+                                <button class="apply-btn" onclick="applyToJob('ux-designer-1')">Ansök nu</button>
+                                <button class="save-btn-small" onclick="toggleSave(this)" aria-label="Spara jobb">♡</button>
+                            </div>
+                        </div>
+                        
+                        <div class="recommendation-card">
+                            <div class="job-header">
+                                <div>
+                                    <h4 class="job-title">Administratör</h4>
+                                    <p class="job-company">Kommun Göteborg, Göteborg</p>
+                                    <span class="partner-badge arbetsformedlingen">Arbetsförmedlingen</span>
+                                </div>
+                                <span class="match-percentage">89% match</span>
+                            </div>
+                            <p class="job-description">Hantera administrativa uppgifter i en strukturerad miljö. Stödjande kollegor och tydliga rutiner.</p>
+                            <div class="job-meta">
+                                <span class="job-type">Deltid</span>
+                                <span class="category">Administration</span>
+                                <span class="support-level">Lönebidrag</span>
+                            </div>
+                            <div class="recommendation-actions">
+                                <button class="apply-btn" onclick="applyToJob('admin-1')">Ansök nu</button>
+                                <button class="save-btn-small" onclick="toggleSave(this)" aria-label="Spara jobb">♡</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -533,15 +631,21 @@
                             <div class="stat-number">12</div>
                             <div class="stat-label">Totalt skickade</div>
                         </div>
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">AF-matchningar</div>
+                        </div>
                     </div>
                     
                     <div class="job-card">
                         <div class="job-title">Kundtjänstmedarbetare</div>
                         <div class="job-company">TechSupport AB</div>
+                        <span class="partner-badge arbetsformedlingen">Arbetsförmedlingen</span>
                         <div class="job-meta">
                             <span class="status-badge reviewing">Under granskning</span>
                             <span>Skickad 2025-01-02</span>
                         </div>
+                        <p><strong>Stöd:</strong> Lönebidrag beviljat, personlig coach tilldelad</p>
                         <div class="application-actions">
                             <button class="message-btn">Kontakta arbetsgivare</button>
                             <button class="withdraw-btn">Dra tillbaka ansökan</button>
@@ -551,10 +655,12 @@
                     <div class="job-card">
                         <div class="job-title">Webbutvecklare</div>
                         <div class="job-company">Inclusive Tech</div>
+                        <span class="partner-badge samhall">Samhall</span>
                         <div class="job-meta">
                             <span class="status-badge interview">Intervju inbokad</span>
                             <span>Skickad 2024-12-28</span>
                         </div>
+                        <p><strong>Stöd:</strong> Samhall-anställning, mentorskap inkluderat</p>
                         <div class="application-actions">
                             <button class="message-btn">Visa intervjudetaljer</button>
                         </div>
@@ -563,10 +669,12 @@
                     <div class="job-card">
                         <div class="job-title">Dataanalytiker</div>
                         <div class="job-company">Data Insights AB</div>
+                        <span class="partner-badge samhall">Samhall</span>
                         <div class="job-meta">
                             <span class="status-badge accepted">Erbjudande mottaget</span>
                             <span>Skickad 2024-12-20</span>
                         </div>
+                        <p><strong>Stöd:</strong> Autism-anpassad arbetsplats, strukturerat introduktionsprogram</p>
                         <div class="application-actions">
                             <button class="accept-btn">Acceptera erbjudande</button>
                             <button class="decline-btn">Avböj erbjudande</button>
@@ -584,10 +692,11 @@
                                 </div>
                                 <div class="conversation-info">
                                     <div class="conversation-name">TechSupport AB</div>
-                                    <div class="conversation-preview">Vi skulle gärna vilja bjuda in dig...</div>
+                                    <div class="conversation-preview">Intervju bekräftad för måndag...</div>
                                     <div class="conversation-time">2025-01-03</div>
                                 </div>
                                 <div class="unread-badge">2</div>
+                                <span class="partner-indicator arbetsformedlingen">AF</span>
                             </div>
                             <div class="conversation-item" onclick="openConversation('inclusive-tech')">
                                 <div class="conversation-avatar">
@@ -598,6 +707,7 @@
                                     <div class="conversation-preview">Tack för din ansökan!</div>
                                     <div class="conversation-time">2025-01-02</div>
                                 </div>
+                                <span class="partner-indicator samhall">S</span>
                             </div>
                             <div class="conversation-item" onclick="openConversation('data-insights')">
                                 <div class="conversation-avatar">
@@ -609,6 +719,19 @@
                                     <div class="conversation-time">2024-12-30</div>
                                 </div>
                                 <div class="unread-badge">1</div>
+                                <span class="partner-indicator samhall">S</span>
+                            </div>
+                            
+                            <div class="conversation-item" onclick="openConversation('arbetsformedlingen')">
+                                <div class="conversation-avatar">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="conversation-info">
+                                    <div class="conversation-name">Arbetsförmedlingen</div>
+                                    <div class="conversation-preview">Nya matchningar tillgängliga...</div>
+                                    <div class="conversation-time">2024-12-30</div>
+                                </div>
+                                <span class="partner-indicator arbetsformedlingen">AF</span>
                             </div>
                         </div>
                         
@@ -643,6 +766,10 @@
                                         Hej! Tack så mycket för erbjudandet. Videointervju låter perfekt. Måndag eller tisdag nästa vecka passar mig bra.
                                     </div>
                                     <div class="message-time">2025-01-03 15:45</div>
+                                </div>
+                                <div class="message received">
+                                    <div class="message-content">Perfekt! Vi bokar in dig för måndag 8 januari kl. 14:00. Du kommer att få en personlig coach som stöd under processen via Arbetsförmedlingen.</div>
+                                    <div class="message-time">2025-01-03 16:00</div>
                                 </div>
                             </div>
                             
@@ -690,6 +817,34 @@
                         </div>
                         
                         <div class="form-group">
+                            <label for="af-registration">Arbetsförmedlingen registreringsnummer</label>
+                            <input type="text" id="af-registration" placeholder="t.ex. AF123456789">
+                            <small>Ange ditt registreringsnummer hos Arbetsförmedlingen för att få tillgång till fler jobbmöjligheter</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Stödinsatser du är berättigad till</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="lonebidrag" name="support" value="lonebidrag">
+                                    <label for="lonebidrag">Lönebidrag</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="aktivitetsstod" name="support" value="aktivitetsstod">
+                                    <label for="aktivitetsstod">Aktivitetsstöd</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="samhall" name="support" value="samhall">
+                                    <label for="samhall">Samhall-anställning</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="trygghetsanstallning" name="support" value="trygghetsanstallning">
+                                    <label for="trygghetsanstallning">Trygghetsanställning</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
                             <label>Namn</label>
                             <input type="text" value="Anna Andersson">
                         </div>
@@ -730,6 +885,18 @@
                                 <div class="checkbox-item">
                                     <input type="checkbox" id="profile-extra-support" checked>
                                     <label for="profile-extra-support">Extra introduktions-/jobsstöd</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="personal-coach" name="accommodations" value="personal-coach">
+                                    <label for="personal-coach">Personlig coach</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="sign-language" name="accommodations" value="sign-language">
+                                    <label for="sign-language">Teckenspråkstolk</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="structured-work" name="accommodations" value="structured-work">
+                                    <label for="structured-work">Strukturerat arbetssätt</label>
                                 </div>
                             </div>
                         </div>
