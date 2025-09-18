@@ -206,13 +206,15 @@ function performSearch() {
     const jobTypeFilter = document.querySelector('.filter-select[aria-label="Välj anställningstyp"]')?.value;
     const accommodationFilter = document.querySelector('.filter-select[aria-label="Välj anpassningar"]')?.value;
     const industryFilter = document.querySelector('.filter-select[aria-label="Välj bransch"]')?.value;
+    const partnerFilter = document.querySelector('.filter-select[aria-label="Välj partner"]')?.value;
     
     const searchParams = {
         term: searchTerm,
         location: locationFilter,
         jobType: jobTypeFilter,
         accommodation: accommodationFilter,
-        industry: industryFilter
+        industry: industryFilter,
+        partner: partnerFilter
     };
     
     console.log('Searching with parameters:', searchParams);
@@ -233,6 +235,7 @@ function filterJobCards(searchParams) {
         const jobType = card.querySelector('.job-type')?.textContent.toLowerCase() || '';
         const accessibilityFeatures = Array.from(card.querySelectorAll('.feature-tag')).map(tag => tag.textContent.trim().toLowerCase());
         const jobLocation = card.querySelector('.job-company')?.textContent.split(',').pop().trim().toLowerCase() || '';
+        const partner = card.querySelector('.partner-badge')?.textContent.toLowerCase() || '';
 
         let matches = true;
         
@@ -268,6 +271,12 @@ function filterJobCards(searchParams) {
         if (searchParams.industry && searchParams.industry !== 'Alla branscher') {
             const filterIndustry = searchParams.industry.toLowerCase();
             matches = matches && category.includes(filterIndustry);
+        }
+
+        // Partner filter
+        if (searchParams.partner && searchParams.partner !== 'Alla partners') {
+            const filterPartner = searchParams.partner.toLowerCase();
+            matches = matches && partner.includes(filterPartner);
         }
         
         // Show/hide card based on matches
@@ -396,53 +405,57 @@ function getJobDetailsById(jobId) {
             title: 'Kundtjänstmedarbetare',
             company: 'TechSupport AB',
             location: 'Stockholm',
-            description: 'Vi söker en engagerad kundtjänstmedarbetare som vill hjälpa våra kunder med teknisk support via telefon och chat. Du kommer att arbeta i ett stödjande team där alla får den hjälp de behöver för att lyckas.',
+            description: 'Vi söker en engagerad kundtjänstmedarbetare som vill hjälpa våra kunder med teknisk support via telefon och chat. Du kommer att arbeta i ett stödjande team där alla får den hjälp de behöver för att lyckas. Denna tjänst är anpassad för personer med funktionsnedsättning och erbjuds i samarbete med Arbetsförmedlingen.',
             requirements: [
                 'Gymnasieutbildning eller motsvarande',
                 'Goda kommunikationsförmågor',
                 'Grundläggande datorkunskaper',
-                'Flyt i svenska och engelska'
+                'Flyt i svenska och engelska',
+                'Registrerad hos Arbetsförmedlingen som arbetssökande'
             ],
-            accessibilityFeatures: ['Flexibla arbetstider', 'Hemarbete möjligt', 'Hjälpmedel för hörsel', 'Extra introduktionsstöd']
+            accessibilityFeatures: ['Flexibla arbetstider', 'Hemarbete möjligt', 'Hjälpmedel för hörsel', 'Extra introduktionsstöd', 'Personlig coach', 'Anpassad arbetsplats']
         },
         'web-dev-1': {
             title: 'Webbutvecklare',
             company: 'Inclusive Tech',
             location: 'Stockholm',
-            description: 'Utveckla tillgängliga webbapplikationer med fokus på användarupplevelse. Vi värdesätter mångfald och har erfarenhet av neurodivergenta utvecklare.',
+            description: 'Utveckla tillgängliga webbapplikationer med fokus på användarupplevelse. Vi värdesätter mångfald och har erfarenhet av neurodivergenta utvecklare. Tjänsten erbjuds genom Samhalls inkluderande arbetsmiljö.',
             requirements: [
                 'Kunskap inom JavaScript och React',
                 'Förståelse för tillgänglighet (WCAG)',
                 'Erfarenhet av responsiv design',
-                'Portfolio med tidigare projekt'
+                'Portfolio med tidigare projekt',
+                'Berättigad till lönebidrag eller andra stödinsatser'
             ],
-            accessibilityFeatures: ['Neurodivergent-vänlig miljö', 'Tyst arbetszon', 'Specialiserad utrustning', 'Flexibel schemaläggning']
+            accessibilityFeatures: ['Neurodivergent-vänlig miljö', 'Tyst arbetszon', 'Specialiserad utrustning', 'Flexibel schemaläggning', 'Mentorskap', 'Strukturerat arbetssätt']
         },
         'care-assistant-1': {
             title: 'Vårdassistent',
             company: 'Caring Hands',
             location: 'Göteborg',
-            description: 'Hjälp äldre personer i deras dagliga aktiviteter. Vi erbjuder en stödjande miljö där empati och omtanke värdesätts högt.',
+            description: 'Hjälp äldre personer i deras dagliga aktiviteter. Vi erbjuder en stödjande miljö där empati och omtanke värdesätts högt. Denna position är skapad i samarbete med Arbetsförmedlingen för att ge personer med funktionsnedsättning meningsfull sysselsättning.',
             requirements: [
                 'Erfarenhet av vårdarbete är meriterande',
                 'Empatisk och ansvarsfull',
                 'God förmåga att kommunicera',
-                'Flexibel och lösningsorienterad'
+                'Flexibel och lösningsorienterad',
+                'Hälsointyg krävs'
             ],
-            accessibilityFeatures: ['Rullstolsanpassat', 'Personlig assistent', 'Anpassade arbetstider', 'Empatisk arbetsmiljö']
+            accessibilityFeatures: ['Rullstolsanpassat', 'Personlig assistent', 'Anpassade arbetstider', 'Empatisk arbetsmiljö', 'Kontinuerlig utbildning', 'Stöd från arbetsterapeut']
         },
         'data-analyst-1': {
             title: 'Dataanalytiker',
             company: 'Data Insights AB',
             location: 'Distans',
-            description: 'Analysera data och skapa insikter för våra kunder. Perfekt för dig som gillar mönster, struktur och arbetar bäst i egen takt.',
+            description: 'Analysera data och skapa insikter för våra kunder. Perfekt för dig som gillar mönster, struktur och arbetar bäst i egen takt. Denna tjänst är särskilt anpassad för personer med autism och erbjuds genom Samhalls specialiserade program.',
             requirements: [
                 'Erfarenhet av dataanalysverktyg (t.ex. SQL, Python, R)',
                 'Förmåga att tolka komplexa datamängder',
                 'Strukturerad och noggrann',
-                'God problemlösningsförmåga'
+                'God problemlösningsförmåga',
+                'Diagnos inom autismspektrum är meriterande'
             ],
-            accessibilityFeatures: ['100% distansarbete', 'Autism-vänlig struktur', 'Visuella verktyg', 'Egen arbetstakt']
+            accessibilityFeatures: ['100% distansarbete', 'Autism-vänlig struktur', 'Visuella verktyg', 'Egen arbetstakt', 'Tydliga instruktioner', 'Regelbunden feedback']
         }
     };
     return jobDetails[jobId];
